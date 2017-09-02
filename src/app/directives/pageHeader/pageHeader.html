@@ -1,0 +1,64 @@
+<div id="header">
+	<!--header--start-->
+	<header class="wrapper">
+
+		<!--logo-start-->
+		<a id="logo">后台管理系统</a>
+		<!--logo-end-->
+
+		<!--user-start-->
+		<div id="userIcon">
+			<!--<a class="emailBtn">
+                <i class="mail large icon">
+                    <span class="circular floating ui small red label">2</span>
+                </i>
+            </a>-->
+			<div class="ui inline labeled icon top right pointing ui dropdown" ui-dropdown>
+				<img class="ui avatar image" ng-src="{{null|defaultAvatar}}">欢迎，管理员
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<!--<a class="item" ui-sref="user.editPassword">
+						<i class="reply user icon"></i>修改密码
+					</a>-->
+					<a class="item" ng-click="exit()">
+						<i class="sign out icon"></i>注销登录
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--user-end-->
+	</header>
+	<!--header-end-->
+	<!--nav-start-->
+	<div id="nav" class="ui teal inverted menu">
+		<div class="bigcontainer wrapper">
+			<!--menu-start-->
+			<div class="menu">
+				<!--right-menu-start-->
+				<div class="right menu">
+					<a class="item" ng-class="{active:$state.includes('home')}" ui-sref="home">
+						<i class="home icon"></i>系统首页
+					</a>
+					<a class="item" ng-class="{active:$state.includes('label')}" ui-sref="label">
+						<i class="sitemap icon"></i>标签
+					</a>
+                    <a class="item" ng-class="{active:$state.includes('news')}" ui-sref="news">
+                        <i class="newspaper icon"></i>新闻
+                    </a>
+                    <a class="item" ng-class="{active:$state.includes('views')}" ui-sref="views">
+                        <i class="tree icon"></i>景点
+                    </a>
+					<a class="item" ng-class="{active:$state.includes('article')}" ui-sref="article">
+						<i class="sitemap icon"></i>活动
+					</a>
+				</div>
+				<img class="small_logo" src="assets/images/logo_1.png" />
+				<!--right-menu-start-->
+			</div>
+			<!--menu-end-->
+
+		</div>
+	</div>
+	<!--nav-end-->
+
+</div>

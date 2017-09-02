@@ -1,0 +1,42 @@
+<div class="ui small modal">
+    <i class="close icon" ng-click="closeThisDialog()"></i>
+    <div class="small header">
+        <div class="user-info">
+            <p>活动关联</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="filed">
+            <table class="ui celled table">
+                <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items" ng-click="addItem(item)">
+                    <td>
+                        <div class="my-item">
+                            <img class="bg"
+                                 ng-src={{item.articlePicture}}
+                                 alt="图片不存在"/>
+                            <div class="content">
+                                <div>{{item.articleTitle}}</div>
+                                <div>{{item.articleOtherText}}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>{{item.startDate}}</div>
+                    </td>
+                    <td>
+                        <div>{{item.endDate}}</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

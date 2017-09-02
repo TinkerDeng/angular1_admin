@@ -1,0 +1,19 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>添加文本</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<textarea ng-model="data.info" required></textarea>
+			</div>
+			<div class="field">
+				<button class="ui button" ng-click="closeThisDialog()">取消</button>
+				<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+			</div>
+		</form>
+	</div>
+</div>

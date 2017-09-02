@@ -1,0 +1,43 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>点击选择菜谱ID</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<!--<div class="field">
+				<div class="ui icon input" style="width: 100%">
+					<i class="search icon link"></i>
+					<input name="search" placeholder="输入菜谱标题进行筛选" type="text" ng-reflect-name="search" class="ng-pristine ng-valid ng-touched">
+				</div>
+			</div>-->
+			<div class="field">
+				<table class="ui celled table">
+					<thead>
+						<tr>
+							<th>标题</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in items" ng-click="addItem(item)" style="cursor: pointer;">
+							<td>
+								<div class="my-item">
+									<img class="bg" src="http://7xr9ex.com1.z0.glb.clouddn.com/o_1b2sndstckt51h8p1fjrgne1f7l1k.png" alt="图片不存在" width="100px" height="100px" />
+									<div class="content">
+										<div>{{item.cookbookName}}</div>
+										<div>{{item.cookbookName}}</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="field">
+				<pagination page-total="totalPage" page-change="change" page-num="pagenum"></pagination>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="label-tag-create">
+	<go-back></go-back>
+	<column-title-bar></column-title-bar>
+	<div class="ui teal segment">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<label>标签名称：</label>
+				<input type="text" placeholder="请输入标签名称" name="topicName" ng-model="data.tagName" required/>
+				<form-error>此项不能为空</form-error>
+			</div>
+
+			<button class="teal ui labeled icon button" ng-class="{loading:otherData.loading}" ng-disabled="form.$invalid" ng-click="submit()">
+                <i class="icon plus"></i>
+                提交
+            </button>
+		</form>
+	</div>
+</div>

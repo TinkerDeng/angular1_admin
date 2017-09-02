@@ -1,0 +1,42 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>关联标签</p>
+		</div>
+	</div>
+	<div class="content">
+		<div class="ui centered grid" ng-class="{loading:otherData.loading}">
+			<div class="eight wide tablet eight wide computer column">
+				<div>
+					<ul style="margin-bottom: 10px;">
+						<li ng-repeat="item in allList">
+							<label class="ui">{{item[conf.name]}}</label>
+							<button class="mini ui button teal" ng-click="relation(item)" ng-show="!item.relationed">
+								<i class="icon iconfont icon-add"></i>关联
+							</button>
+							<button class="mini ui button" ng-show="item.relationed">已关联</button>
+						</li>
+					</ul>
+					<pagination page-total="totalPage" page-change="change" page-num="pagenum"></pagination>
+				</div>
+			</div>
+			<div class="eight wide tablet eight wide computer column">
+				<div>
+					<ul style="margin-bottom: 10px;">
+						<li ng-repeat="item in bindList">
+							<label class="ui">{{item[conf.name]}}</label>
+							<button class="mini ui button teal" ng-click="cancelRelation($index,item)"> 
+									取消
+							</button>
+							<!--<button ng-if="isNews" class="mini ui button teal" ng-click="find(item)"> 
+									查看
+							</button>-->
+						</li>
+					</ul>
+					<button class="fluid ui button teal button" ng-click="submit()">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

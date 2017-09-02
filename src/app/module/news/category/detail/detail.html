@@ -1,0 +1,17 @@
+<div class="news-content-detail">
+	<column-title-bar></column-title-bar>
+	<div class="ui  segments">
+		<div class="ui teal inverted segment">
+			<p>{{data.articleTitle}}</p>
+		</div>
+		<div class="ui  segment">
+			<editor-content data='data.jsonList'></editor-content>
+			<div style="text-align: center;" ng-if="data.jsonList.content.length==0">暂无新闻内容</div>
+		</div>
+		<div class="ui segment">
+			 <a class="ui button" ui-sref="news.content.edit({id:data.articleId})">
+                <i class="icon iconfont icon-edit"></i>修改
+            </a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>产品管理</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<label>产品标题：</label>
+				<input placeholder="产品标题" type="text" ng-model="product.title" required="">
+			</div>
+			<div class="field">
+				<label>上传图片：</label>
+				<upload ng-model="data.image" width="100" height="100" required="">
+					必填项，用于产品图片。
+				</upload>
+			</div>
+			<div class="field">
+				<label>选择模式：</label>
+				<switch ng-model="checked"></switch>
+			</div>
+			<div class="field">
+				<label>商品价格：</label>
+				<input placeholder="请输入商品价格" type="text" ng-model="product.price" required="">
+			</div>
+			<div class="field" ng-if="checked">
+				<label>商品链接：</label>
+				<input placeholder="请输入商品链接" type="text" ng-model="product.info" required="">
+			</div>
+			<div class="field" ng-if="!checked">
+				<label>商品ID：</label>
+				<product-link info="product.info" type="1"></product-link>
+			</div>
+			<div class="field">
+				<button class="ui button" ng-click="closeThisDialog()">取消</button>
+				<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+			</div>
+		</form>
+	</div>
+</div>

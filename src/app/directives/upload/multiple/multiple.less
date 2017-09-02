@@ -1,0 +1,65 @@
+@import "../../../../assets/less/values";
+@import "../../../../assets/less/mixin";
+
+.upload.multiple {
+
+  .img-box {
+    tooltip {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      width: 21px;
+      height: 20px;
+    }
+
+    &.ui-sortable-helper {
+      opacity: 0.8;
+    }
+    &.ui-sortable-placeholder {
+      border: 2px dashed @default-color !important;
+      visibility: visible !important;
+      height: 100px;
+      width: 100px;
+      line-height: 90px;
+      text-align: center;
+
+      &:before {
+        content: '拖放到此区域';
+      }
+    }
+  }
+
+  .img-cont {
+    float: left;
+    padding: 10px 15px;
+    border: 1px solid #ebebeb;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: content-box;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+    &:hover {
+      border-color: @default-color;
+      .iconfont {
+        color: @default-color;
+      }
+    }
+  }
+
+  .del-img {
+    position: absolute;
+    right: -19px;
+    top: -7px;
+    display: block;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 25px;
+    &:hover {
+      color: @red-color;
+    }
+  }
+  .uploadBtn {
+    cursor: pointer;
+  }
+
+}

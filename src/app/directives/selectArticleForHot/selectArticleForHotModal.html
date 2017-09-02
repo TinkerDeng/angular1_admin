@@ -1,0 +1,34 @@
+<div class="ui small modal">
+    <i class="close icon" ng-click="closeThisDialog()"></i>
+    <div class="small header">请选择内链目标</div>
+    <div class="content">
+        <div class="ui teal three item inverted menu">
+            <a class="item" ng-class="{active:currentType==1}" ng-click="changeListType(1)">新闻 </a>
+            <a class="item" ng-class="{active:currentType==2}" ng-click="changeListType(2)">景点 </a>
+            <a class="item" ng-class="{active:currentType==3}" ng-click="changeListType(3)">活动 </a>
+        </div>
+        <table class="ui celled striped table">
+            <tbody>
+            <tr ng-repeat="item in list">
+                <td class="collapsing" style="width: 678px">
+                    <div class="ellipsis">{{item.articleTitle}}</div>
+                </td>
+                <td>
+                    <button class="ui tiny compact teal button" ng-click="selected(item)"
+                            ng-disabled="item.articleId==currentId">选定
+                    </button>
+                </td>
+            </tr>
+            <tr ng-if="list.length==0">
+                <td colspan="100" style="text-align: center;">
+                    没有符合条件的记录
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align: center" ng-if="list.length>0">
+            <pagination page-total="totalPage" page-change="changePageNum" page-num="pageNum"></pagination>
+        </div>
+    </div>
+</div>

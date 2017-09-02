@@ -1,0 +1,39 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>添加视频</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<div class="ui buttons center">
+					<button class="ui button" ng-click="otherData.type=0" ng-class="{teal:otherData.type==0}">外链</button>
+					<div class="or" data-text="或"></div>
+					<button class="ui button" ng-click="otherData.type=1" ng-class="{teal:otherData.type==1}">上传</button>
+				</div>
+			</div>
+			<div class="field">
+				<label>上传图片：</label>
+				<upload ng-model="data.image" width="750" height="400" required>
+					必填项，用于视频图片。
+				</upload>
+			</div>
+			<div class="field" ng-if="otherData.type==0">
+				<label>视频链接：</label>
+				<input placeholder="请输入视频链接" type="text" ng-model="data.info">
+			</div>
+			<div class="field" ng-if="otherData.type==1">
+				<label>本地上传：</label>
+				<upload required type="MP4" size="10" ng-model="data.info">
+					格式为MP4，大小不可大于10M。
+				</upload>
+			</div>
+			<div class="field">
+				<button class="ui button" ng-click="closeThisDialog()">取消</button>
+				<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+			</div>
+		</form>
+	</div>
+</div>

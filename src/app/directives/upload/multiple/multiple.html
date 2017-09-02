@@ -1,0 +1,32 @@
+<div class="upload multiple">
+    <!--顶部备注-->
+    <p class="annotation">
+        <span class="orange">注</span>：
+        <span ng-transclude=""></span>
+        <span ng-if="width&&height">尺寸为{{width}}*{{height}}像素，</span>
+        <span ng-if="width&&!height">尺寸为宽度{{width}}像素，</span>
+        <span ng-if="!width&&height">尺寸为高度{{height}}像素，</span>
+        <span>格式为{{type.join('、')}}，图片大小不可大于{{size}}M。</span>
+    </p>
+
+    <div class="body" ui-sortable="sortableOptions" ng-model="imgs">
+
+        <!--多图上传-->
+        <div class="img-box" ng-repeat="img in imgs track by $index" ng-style="sizeStyle">
+            <img class="view-img" ng-src="{{img|img}}">
+            <i class="icon iconfont icon-error del-img" ng-click="delImg($index)"></i>
+        </div>
+
+        <!--上传按钮-->
+        <div class="img-cont" style="display: block;" ng-style="sizeStyle" ng-show="imgs.length<max"
+             ng-class="{'ui loading':uploading}">
+            <div class="uploadBtn img-empty">
+                <i class="iconfont icon-add"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!--错误备注-->
+    <p class="error" ng-if="errorInfo"><i class="iconfont icon-error"></i> {{errorInfo}}</p>
+</div>

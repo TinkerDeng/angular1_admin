@@ -1,0 +1,48 @@
+@import "../../../../assets/less/values";
+@import "../../../../assets/less/mixin";
+
+.upload.single {
+    .img-box {
+        cursor: auto;
+        i {
+           /* display: inline-block;*/
+            vertical-align: middle;
+        }
+        img {
+            vertical-align: middle;
+        }
+    }
+    .img-cont {
+        position: relative;
+        float: left;
+        margin-left: 10px;
+        &.uploading {
+            pointer-events: none;
+            .uploadBtn {
+                opacity: 0.5;
+            }
+        }
+    }
+    .uploadBtn {
+        width: auto !important;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid @border-color;
+        border-radius: 5px;
+        background-color: @bg-color;
+        cursor: pointer;
+        padding: 0 10px;
+        white-space: nowrap;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        &:hover {
+            color: @default-color;
+            border-color: @default-color;
+        }
+    }
+    .subAnnotation {
+        line-height: 30px;
+        margin-bottom: 10px;
+    }
+}

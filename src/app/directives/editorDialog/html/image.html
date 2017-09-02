@@ -1,0 +1,36 @@
+<div class="ui small modal">
+    <i class="close icon" ng-click="closeThisDialog()"></i>
+    <div class="small header">
+        <div class="user-info">
+            <p>添加图片</p>
+        </div>
+    </div>
+    <div class="content">
+        <form class="ui form" name="form" novalidate>
+            <div class="field">
+                <label>图片标题：</label>
+                <input placeholder="请输入图片标题" type="text" ng-model="data.info">
+            </div>
+            <div class="field">
+                <div class="ui form">
+                    <div class="inline fields">
+                        <div class="twelve field">
+                            <label>上传图片：</label>
+                            <upload ng-model="data.image" required max-width="data.w" max-height="data.h">
+                                必填项，用于图文展示。
+                            </upload>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>自动缩放：</label>
+                <switch-btn ng-model="data.autoresize"></switch-btn>
+            </div>
+            <div class="field">
+                <button class="ui button" ng-click="closeThisDialog()">取消</button>
+                <button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+            </div>
+        </form>
+    </div>
+</div>

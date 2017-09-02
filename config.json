@@ -1,0 +1,9 @@
+{
+  "ssh": {
+    "host": "private",
+    "username": "private",
+    "password": "private",
+    "port": "private",
+    "remotePath": "/data/zhinanzhen"
+  }
+}

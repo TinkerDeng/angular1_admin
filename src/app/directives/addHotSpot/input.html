@@ -1,0 +1,65 @@
+<div class="ui small modal">
+	<div class="content">
+		<form class="ui mini form" name="form" novalidate="">
+			<div class="field">
+				<label>标志值：</label>
+				<input placeholder="请输入标记值" type="text" ng-model="data.value" />
+			</div>
+			<div class="field">
+				<label>显示方向：</label>
+				<div class="inline field">
+					<div class="ui radio checkbox">
+						<input name="direction" type="radio" ng-model="data.direction" value="1" required="">
+						<label>右下</label>
+					</div>
+					<div class="ui radio checkbox">
+						<input name="direction" type="radio" ng-model="data.direction" value="2" required="">
+						<label>左下</label>
+					</div>
+					<div class="ui radio checkbox">
+						<input name="direction" type="radio" ng-model="data.direction" value="3" required="">
+						<label>右上</label>
+					</div>
+					<div class="ui radio checkbox">
+						<input name="direction" type="radio" ng-model="data.direction" value="4" required="">
+						<label>左上</label>
+					</div>
+				</div>
+			</div>
+			<div class="inline field">
+				<div class="field">
+					<label>选择类别：</label>
+					<div class="inline field">
+						<div class="ui radio checkbox" ng-repeat="item in config.type">
+							<input name="targetType" ng-checked="item.value==currentType.value" type="radio" ng-value="item.value" ng-click="change(item)">
+							<label>{{item.title}}</label>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="inline field">
+				<div class="field">
+					<label>选择模式：</label>
+					<div class="inline field">
+						<div class="ui radio checkbox" ng-if="currentType.linkTypes.indexOf(item.value)>-1" ng-repeat="item in config.linkType">
+							<input name="type" type="radio" ng-value={{item.value}} ng-checked="item.value==currentLinkType.value" ng-click="choice(item)">
+							<label>{{item.title}}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="field targetValue" ng-if="currentLinkType.showId">
+				<label>ID：</label>
+				<product-link info="data.targetValue" type="1" ng-if="currentType.value==1"></product-link>
+				<product-link info="data.targetValue" type="2" ng-if="currentType.value==2"></product-link>
+				<product-link info="data.targetValue" type="3" ng-if="currentType.value==3"></product-link>
+			</div>
+			<div class="field targetValue" ng-if="currentLinkType.showUrl">
+				<label>URL：</label>
+				<input placeholder="请输入链接地址" type="text" ng-model="data.targetValue" required="" />
+			</div>
+			<button class="ui submit button teal" ng-disabled="!data.value" ng-click="updata()">修改</button>
+		</form>
+	</div>
+</div>

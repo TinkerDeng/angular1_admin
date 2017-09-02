@@ -1,0 +1,34 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>添加菜谱</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<label>菜谱标题：</label>
+				<input placeholder="菜谱标题" type="text" ng-model="cookie.title" required="">
+			</div>
+			<div class="field">
+				<label>上传图片：</label>
+				<upload ng-model="data.image" width="100" height="100" required="">
+					必填项，用于菜谱图标。
+				</upload>
+			</div>
+			<div class="field">
+				<label>菜谱描述：</label>
+				<input placeholder="精简的菜谱描述" type="text" ng-model="cookie.content" required="">
+			</div>
+			<div class="field">
+				<label>菜谱ID：</label>
+				<product-link info="cookie.info" type="2"></product-link>
+			</div>
+			<div class="field">
+				<button class="ui button" ng-click="closeThisDialog()">取消</button>
+				<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+			</div>
+		</form>
+	</div>
+</div>

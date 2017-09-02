@@ -1,0 +1,135 @@
+<div class="article-category-list">
+    <float-btn title="添加分类" ui-sref="article.category.create">
+        <i class="icon plus"></i>
+    </float-btn>
+    <column-title-bar></column-title-bar>
+    <table class="ui teal selectable table table-list">
+        <thead>
+        <tr>
+            <th width="100">ID</th>
+            <th>分类名称</th>
+            <th width="160">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in list" ng-class="{checked:item.checked}">
+            <td>{{item.topicId}}</td>
+            <td>
+                <span class="item-info">{{item.topicTitle}}</span>
+            </td>
+            <td>
+                <a class="ui teal tiny compact button" ui-sref="article.category.edit({id:item.topicId})">修改</a>
+                <button class="ui red tiny compact button" ng-click="delete(item.topicId)">删除</button>
+            </td>
+        </tr>
+        <tr ng-if="list.length==0">
+            <td colspan="4" class="center aligned">
+                没有符合条件的记录
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr ng-if="list.length>0">
+            <th colspan="4" class="center aligned">
+                <pagination page-total="totalPage"></pagination>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!--<div class="article-category-list">
+	<column-title-bar></column-title-bar>
+	<div class="sort">
+		<ul class="ui">
+			<li class="item"><button class="ui tiny button teal" ng-click="addChild()">添加分类</button></li>
+			<li ng-repeat="item in list" class="item-one">
+				<a href="javascript:;">
+					<i class="icon iconfont" ng-click="toggle(item)" ng-class="{'icon-increase':!item.open,'icon-reduce':item.open}"></i>
+					<span>{{item.categoryName}}</span>
+					<div class="pull-right">
+						<button class="ui icon button mini" ng-click="addChild(item)">
+						  	<i class="icon iconfont icon-increase"></i>
+						</button>
+						<button class="ui icon button mini">
+						  	<i class="icon iconfont icon-update" ng-click="update(item)"></i>
+						</button>
+						<button class="ui icon button youtube mini" ng-click="delete(item)">
+						  	<i class="icon iconfont icon-delete"></i>
+						</button>
+					</div>
+				</a>
+				<ul ng-show="item.open">
+					<li class="item-two">
+						<a href="javascript:;">
+							<i class="icon iconfont icon-left" ng-click="toggle(item)"></i>
+							<span>{{item.categoryName}}</span>
+							<div class="pull-right">
+								<relation item-title="" conf="conf"><i class="icon iconfont icon-relation"></i></relation>
+								<button class="ui icon button mini">
+								  	<i class="icon iconfont icon-update" ng-click="update(item)"></i>
+								</button>
+								<button class="ui icon button youtube mini" ng-click="delete(item)">
+								  	<i class="icon iconfont icon-delete"></i>
+								</button>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/ng-template" id="addChildTemplate">
+	<div class="ui small modal">
+		<i class="close icon" ng-click="closeThisDialog()"></i>
+		<div class="small header">
+			<div class="user-info">
+				<p>添加分类</p>
+			</div>
+		</div>
+		<div class="content">
+			<div class="ui centered grid" ng-class="{loading:otherData.loading}">
+				<div class="doubling one column row">
+					<div class="column">
+						<div class="ui form">
+							<div class="inline fields">
+								<div class="twelve field">
+									<label>分类名称：</label>
+									<input placeholder="First Name" type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui form">
+							<div class="inline fields">
+								<div class="twelve field">
+									<label>分类图标：</label>
+									<upload ng-model="data.categoryAvatar" width="96" height="96" required>
+										必填项，用于菜单分类图标。
+									</upload>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui form">
+							<div class="inline fields">
+								<div class="twelve field">
+									<label>排　　序：</label>
+									<input placeholder="First Name" type="number">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="ui two column centered grid">
+							<div class="column"><button class="ui tiny button teal" ng-click="submit()">提交</button></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>-->

@@ -1,0 +1,87 @@
+<div class="views-content-detail">
+    <go-back></go-back>
+	<column-title-bar></column-title-bar>
+	<div class="ui  segments">
+		<div class="ui teal inverted segment">
+			<p>{{data.articleTitle}}</p>
+		</div>
+		<div class="ui  segment">
+			<editor-content data='data.jsonList'></editor-content>
+			<div style="text-align: center;" ng-if="data.jsonList.content.length==0">暂无景点内容</div>
+		</div>
+		<div class="ui segment">
+			<!--<button class="ui button" ng-click="addComment(data.viewsId)">
+				<i class="icon iconfont icon-add"></i>添加评论
+			</button>-->
+			<a class="ui button" ui-sref="views.content.edit({id:data.articleId})">
+				<i class="icon iconfont icon-edit"></i>修改
+			</a>
+		</div>
+	</div>
+	<!--
+	<div class="ui raised segments comment">
+		<div class="ui segment">
+			<p>最新评论</p>
+		</div>
+		<div class="ui segment">
+
+			<div class="ui middle aligned divided list">
+				<div class="item noComment" ng-if="commentList.length<=0">
+					<i class="icon iconfont icon-sad"></i> 暂无评论
+				</div>
+				<div class="item" ng-repeat="item in commentList">
+					<div class="right floated content">
+						&lt;!&ndash;<div class="ui vertical animated button" tabindex="0" ng-click="addComment(data.viewsId)">
+							<div class="hidden content">评论</div>
+							<div class="visible content"><i class="icon iconfont icon-comment"></i>
+							</div>
+						</div>&ndash;&gt;
+						<div class="ui vertical animated button" tabindex="0" ng-click="updateComment(item)">
+							<div class="hidden content">修改</div>
+							<div class="visible content"><i class="icon iconfont icon-update"></i>
+							</div>
+						</div>
+						<div class="ui vertical animated button red" tabindex="0" ng-click="deleteComment(item.commentId)">
+							<div class="hidden content">删除</div>
+							<div class="visible content">
+								<i class="icon iconfont icon-delete"></i>
+							</div>
+						</div>
+					</div>
+					<img class="ui avatar image" src="http://7xr9ex.com1.z0.glb.clouddn.com/o_1b2ptr82s16ge13dmn21p4p4du7.jpg">
+					<div class="content">
+						<a class="header">评论人 ： {{item.nickName}}</a>
+					</div>
+					<div class="commentContent">
+						{{item.commentContent}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+-->
+</div>
+<script type="text/ng-template" id="addCommentTemplate">
+	<div class="ui small modal">
+		<i class="close icon" ng-click="closeThisDialog()"></i>
+		<div class="small header">
+			<div class="user-info">
+				<p>添加评论</p>
+			</div>
+		</div>
+		<div class="content">
+			<form class="ui form" name="form" novalidate>
+				<div class="field">
+					<label>评论内容</label>
+					<textarea ng-model="data.commentContent"></textarea>
+				</div>
+				<div class="field">
+					<button class="ui button" ng-click="closeThisDialog()">取消</button>
+					<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid" disabled="disabled">
+                        	确定
+                    </button>
+				</div>
+			</form>
+		</div>
+	</div>
+</script>

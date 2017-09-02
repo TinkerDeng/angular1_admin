@@ -1,0 +1,45 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>添加音频</p>
+		</div>
+	</div>
+	<div class="content">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<div class="ui buttons center">
+					<button class="ui button" ng-click="otherData.type=0" ng-class="{teal:otherData.type==0}">外链
+                    </button>
+					<div class="or" data-text="或"></div>
+					<button class="ui button" ng-click="otherData.type=1" ng-class="{teal:otherData.type==1}">上传
+                    </button>
+				</div>
+			</div>
+			<div class="field">
+				<label>音频标题：</label>
+				<input placeholder="音频标题" type="text" required ng-model="data.title">
+			</div>
+			<div class="field">
+				<label>上传图片：</label>
+				<upload ng-model="data.image" width="100" height="100" required="required" ng-model="data.image">
+					必填项，用于音频图片。
+				</upload>
+			</div>
+			<div class="field" ng-if="otherData.type==0">
+				<label>音频链接：</label>
+				<input placeholder="音频链接" type="text" required ng-model="data.info">
+			</div>
+			<div class="field" ng-if="otherData.type==1">
+				<label>本地上传：</label>
+				<upload ng-model="data.info" required="required" type="MP3" size="10">
+					必填项，用户音频链接地址。
+				</upload>
+			</div>
+			<div class="field">
+				<button class="ui button" ng-click="closeThisDialog()">取消</button>
+				<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+			</div>
+		</form>
+	</div>
+</div>

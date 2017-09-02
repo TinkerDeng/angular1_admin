@@ -1,0 +1,43 @@
+<div class="views-content-create">
+    <go-back></go-back>
+	<column-title-bar></column-title-bar>
+	<div class="ui teal segment">
+		<form class="ui form" name="form" novalidate>
+			<div class="field" ng-class="{'error':form.articleTitle.$touched && form.articleTitle.$invalid}">
+				<label>景点标题：</label>
+				<input type="text" placeholder="请输入景点标题" name="articleTitle" ng-model="data.articleTitle" required="" />
+				<form-error>此项不能为空</form-error>
+			</div>
+			<div class="field">
+				<label>联系电话：</label>
+				<input type="text" placeholder="请输入联系电话" name="telephone" ng-model="data.telephone" required="" />
+			</div>
+			<div class="field">
+				<label>活动图片：</label>
+				<pic-hot-spot ng-model="data.articlePicture" width="750" height="300">
+					<button class="ui button red">添加热点</button>
+				</pic-hot-spot>
+			</div>
+			<div class="field">
+				<label>添加地址位置：</label>
+				<map ng-model="data.lonLat"></map>
+			</div>
+			<div class="field">
+				<label>景点描述：</label>
+				<textarea class="textArea" ng-model="data.articleOtherText"></textarea>
+			</div>
+			<div class="field">
+				<label>景点内容：</label>
+				<editor-dialog ng-model="data.jsonList">
+					<edit-tab title="添加文本" icon="icon-text" type="text"></edit-tab>
+					<edit-tab title="添加图片" icon="icon-img" type="image"></edit-tab>
+					<edit-tab title="添加视频" icon="icon-video" type="video"></edit-tab>
+					<edit-tab title="添加音频" icon="icon-audio" type="audio"></edit-tab>
+				</editor-dialog>
+			</div>
+			<button class="ui labeled icon teal button" ng-click="submit()" ng-disabled="form.$invalid">
+                <i class="icon plus"></i>提交
+            </button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="article-category-create">
+    <go-back></go-back>
+    <column-title-bar></column-title-bar>
+    <div class="ui teal segment">
+        <form class="ui form" name="form" novalidate>
+            <!--<div class="field">
+                <label>标签设置：</label>
+                <div class="ui fluid search selection dropdown" ui-dropdown>
+                    <i class="dropdown icon"></i>
+                    <div class="text">{{ data.topicName || '请选择商品分类(必填项)' }}</div>
+                    <div class="menu">
+                        <div class="item" ng-repeat="item in topicList" ng-click="data.topicId=item.topicId">
+                            {{ item.topicName }}
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="field">
+                <label>分类名称：</label>
+                <input type="text" placeholder="请输入分类名称" name="topicName" ng-model="data.topicTitle" required/>
+                <form-error>此项不能为空</form-error>
+            </div>
+            <button class="teal ui labeled icon button" ng-class="{loading:otherData.loading}"
+                    ng-disabled="form.$invalid" ng-click="submit()">
+                <i class="icon plus"></i>
+                提交
+            </button>
+        </form>
+    </div>
+</div>

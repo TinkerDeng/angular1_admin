@@ -1,0 +1,66 @@
+{
+  "name": "angular-scaffolding",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular-animate": "~1.5.3",
+    "angular-sanitize": "~1.5.3",
+    "angular-messages": "~1.5.3",
+    "angular-ui-router": "~0.2.15",
+    "animate.css": "~3.4.0",
+    "angular": "1.5.3",
+    "semantic": "semantic-ui#^2.2.2",
+    "normalize-css": "^4.2.0",
+    "angular-ui-sortable": "^0.14.3",
+    "angular-tooltips": "^1.1.4",
+    "qiniu": "^1.0.16-beta",
+    "angular-ui-uploader": "^1.1.3",
+    "simditor": "^2.3.6",
+    "jquery": "2.1.4",
+    "ng-dialog": "^0.6.2",
+    "layer": "*",
+    "angular-local-storage": "^0.3.0",
+    "angular-toastr": "^2.0.0",
+    "angular-datepicker": "^2.0.3",
+    "highcharts-ng": "^0.0.12",
+    "highcharts": "^4.2.6",
+    "coordtransform": "^2.1.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.3"
+  },
+  "resolutions": {
+    "jquery": "2.1.4",
+    "angular": "1.5.3"
+  },
+  "overrides": {
+    "semantic": {
+      "main": [
+        "dist/semantic.css",
+        "dist/semantic.js",
+        "dist/themes/default/assets/fonts/icons.eot",
+        "dist/themes/default/assets/fonts/icons.otf",
+        "dist/themes/default/assets/fonts/icons.svg",
+        "dist/themes/default/assets/fonts/icons.ttf",
+        "dist/themes/default/assets/fonts/icons.woff",
+        "dist/themes/default/assets/fonts/icons.woff2"
+      ]
+    },
+    "plupload": {
+      "main": [
+        "js/plupload.full.min.js"
+      ]
+    },
+    "layer": {
+      "main": [
+        "src/skin/default/layer.css",
+        "src/layer.js"
+      ]
+    },
+    "moment": {
+      "main": [
+        "moment.js",
+        "locale/zh-cn.js"
+      ]
+    }
+  }
+}

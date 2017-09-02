@@ -1,0 +1,14 @@
+<div class="ui teal pagination menu">
+
+  <a class="icon item" ng-click="prevPage()" ng-class="{disabled:pageCurrent==1}">
+    <i class="left chevron icon"></i>
+  </a>
+
+  <a class="item" ng-repeat="item in pageList track by $index" ng-click="changePage(item)"
+     ng-class="{active:item==pageCurrent}">{{item}}</a>
+
+  <a class="icon item" ng-click="nextPage()" ng-class="{disabled:pageCurrent==pageTotal}">
+    <i class="right chevron icon"></i>
+  </a>
+
+</div>

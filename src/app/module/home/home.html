@@ -1,0 +1,67 @@
+<div id="home">
+    <div class="wrapper">
+        <div class="ui grid">
+            <div class="twelve wide column">
+                <div class="ui teal segment">
+                    <div style="text-align: center;padding: 250px 0;">
+                        <p>欢迎进入</p>
+                        <p>文化中心指南针管理系统</p>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column aside">
+                <div class="ui segments">
+                    <div class="ui segment header">
+                        快捷入口
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui three column grid">
+                            <a class="column" ui-sref="news.content.create">
+                                <i class="newspaper icon"></i>
+                                <div>添加新闻</div>
+                            </a>
+                            <a class="column" ui-sref="views.content.create">
+                                <i class="tree icon"></i>
+                                <div>添加景点</div>
+                            </a>
+                            <a class="column" ui-sref="article.content.create">
+                                <i class="sitemap icon"></i>
+                                <div>添加活动</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui segments">
+                    <div class="ui segment header">
+                        新闻状态
+                    </div>
+                    <div class="ui segment">
+                        <label>合计量：</label>
+                        <strong>{{ data.newsTotal }}</strong>
+                    </div>
+                </div>
+
+                <div class="ui segments">
+                    <div class="ui segment header">
+                        景点状态
+                    </div>
+                    <div class="ui segment">
+                        <label>合计量：</label>
+                        <strong>{{ data.viewsTotal }}</strong>
+                    </div>
+                </div>
+
+                <div class="ui segments">
+                    <div class="ui segment header">
+                        活动状态
+                    </div>
+                    <div class="ui segment">
+                        <label>合计量：</label>
+                        <strong>{{ data.articleTotal }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

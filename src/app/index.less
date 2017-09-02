@@ -1,0 +1,740 @@
+@import "../assets/less/values";
+@import "../assets/less/mixin";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  list-style: none;
+}
+
+body,
+html {
+  background-color: #f3f3f3;
+  font-family: @default-font-family !important;
+  &.ngdialog-open {
+    height: auto !important;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+h2 {
+  font-family: @default-font-family !important;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: auto;
+}
+
+.page {
+  padding-bottom: 50px;
+}
+
+#header {
+  & ~ .page {
+    padding-top: 30px;
+  }
+  &.hide ~ .page {
+    padding-top: 135px;
+  }
+}
+
+.field .pointing.label {
+  position: absolute;
+  display: block;
+  top: 4px;
+  white-space: nowrap;
+}
+
+.ui.header,
+.ui.menu {
+  font-family: @default-font-family;
+}
+
+.pointerEvents {
+  pointer-events: none;
+}
+
+.filter-blur {
+  filter: blur(5px);
+}
+
+.color-teal {
+  color: @default-color;
+}
+
+//滚动条样式重写
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  border: none;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  background: #CBCBCB;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: @default-color;
+}
+
+//tooltip样式重写
+tooltip._steady._ready tip {
+  min-width: 0;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
+tip {
+  &.teal {
+    background-color: @default-color;
+    tip-arrow {
+      border-top-color: @default-color !important;
+    }
+  }
+  &.red {
+    background-color: @red-color;
+    tip-arrow {
+      border-top-color: @red-color !important;
+    }
+  }
+}
+
+/*
+  增加loading样式
+*/
+
+.ui.button.loading {
+  pointer-events: none !important;
+}
+
+/*
+.ui.loading:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .8);
+  width: 100%;
+  height: 100%;
+  border-radius: .28571429rem;
+  z-index: 100
+}
+
+.ui.loading:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -1.5em 0 0 -1.5em;
+  width: 3em;
+  height: 3em;
+  animation: segment-spin .6s linear;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #767676 rgba(0, 0, 0, .1) rgba(0, 0, 0, .1);
+  border-style: solid;
+  border-width: .2em;
+  box-shadow: 0 0 0 1px transparent;
+  visibility: visible;
+  z-index: 101
+}
+*/
+
+@keyframes segment-spin {
+  from {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+//表单样式重写
+.ui.form input:not([type]):focus,
+.ui.form input[type="date"]:focus,
+.ui.form input[type="datetime-local"]:focus,
+.ui.form input[type="email"]:focus,
+.ui.form input[type="number"]:focus,
+.ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="url"]:focus,
+.ui.form textarea:focus {
+  border-color: @default-color;
+}
+
+//layer样式重写
+.layui-layer-moves {
+  border: 2px solid @default-color !important;
+  border-radius: 5px;
+}
+
+.layui-layer {
+  border-radius: 5px;
+  user-select: none;
+  .layui-layer-title {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .layui-layer-btn {
+    a {
+      border-radius: 4px;
+    }
+  }
+  &.teal {
+    .layui-layer-title {
+      background-color: @default-color;
+      color: #fff;
+    }
+    .layui-layer-btn0 {
+      background-color: @default-color;
+      color: #fff;
+    }
+  }
+  &.red {
+    .layui-layer-title {
+      background-color: @red-color;
+      color: #fff;
+    }
+    .layui-layer-btn0 {
+      background-color: @red-color;
+      color: #fff;
+    }
+  }
+}
+
+//datepicker样式重写
+[date-picker] {
+  border: 1px solid @default-color;
+  .active {
+    background: none !important;
+    background-color: @default-color !important;
+  }
+  .now {
+    background: none !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+}
+
+//.table样式重写
+.ui.selectable.table tbody tr:hover,
+.ui.table tbody tr td.selectable:hover,
+.ui.table tbody tr.checked {
+  background: @light-green-color !important;
+}
+
+.ui.table {
+  .ui.checkbox {
+    vertical-align: middle;
+  }
+  &.table-list {
+    tr {
+      transition: background-color 0.15s ease-in-out;
+    }
+    td {
+      &.preview {
+        img {
+          float: left;
+        }
+        .item-info {
+          float: left;
+          font-size: 13px;
+          padding-left: 10px;
+          display: inline-block;
+          width:200px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          h2 {
+            margin: 10px 0;
+            .ellipsis();
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//.simditor样式重写
+.editor-style div,
+.editor-style p,
+.simditor .simditor-body div,
+.simditor .simditor-body p {
+  margin-bottom: 10px;
+}
+
+.simditor .simditor-body {
+  padding-top: 15px;
+  //max-height: 500px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.simditor .simditor-wrapper {
+  &.toolbar-floating {
+    .simditor-toolbar {
+      top: 45px !important;
+    }
+  }
+}
+
+.simditor .simditor-toolbar > .toolbar-item-image {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  outline: none;
+  color: #333333;
+  font-size: 15px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fff;
+  cursor: pointer;
+  span {
+    display: inline;
+    line-height: normal;
+    opacity: 0.6;
+  }
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+  input {
+    font-size: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+//highcharts样式重写
+.highcharts-container {
+  svg {
+    & > text:last-child {
+      display: none;
+    }
+  }
+}
+
+.highcharts-contextmenu {
+  hr {
+    color: #ccc !important;
+  }
+  & > div {
+    padding: 0;
+    width: 105px;
+    text-align: center;
+    border-color: #ccc !important;
+    div:hover {
+      background-color: @default-color !important;
+    }
+  }
+  * {
+    font-size: 13px !important;
+    line-height: 30px;
+    padding: 0 !important;
+  }
+}
+
+//#toast样式重写
+#toast-container {
+  z-index: 19900829;
+}
+
+//ngDialog样式重写
+.withModal {
+  padding-top: 230px !important;
+  .ngdialog-content {
+    padding: 0 !important;
+  }
+  .ui.modal {
+    display: block;
+    position: relative;
+    width: 100% !important;
+    margin: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    & > .close {
+      right: 0;
+      top: 0;
+      color: @text-color;
+    }
+  }
+  .center {
+    position: relative;
+    left: 50%;
+    margin-left: -73px;
+  }
+}
+.relation {
+  .ngdialog-content {
+    width: 1080px !important;
+  }
+  .eight div {
+    ul {
+      display: block;
+      position: relative;
+      overflow: auto;
+      min-height: 300px;
+      border: 1px solid #ddd;
+    }
+    label {
+      display: inline-block;
+      line-height: 35px;
+    }
+    li {
+      position: relative;
+      border: 1px solid #ddd;
+      padding: 5px;
+      overflow: hidden;
+      button {
+        font-size: 0.3rem;
+        float: right;
+      }
+    ;
+    }
+  }
+}
+
+.address {
+  .ngdialog-content {
+    width: 1200px !important;
+  }
+}
+
+.addChild {
+  .ngdialog-content {
+    width: 1040px !important;
+  }
+}
+
+.addMetarial {
+  .ngdialog-content {
+    width: 1000px !important;
+  }
+}
+
+.my-item {
+  position: relative;
+  img {
+    float: left;
+    width: 50px;
+    height: auto;
+  }
+  div {
+    line-height: 25px;
+    padding-left: 30px;
+  }
+}
+
+#article .article-info {
+  width: 100%;
+  .ui.segment {
+    min-height: 500px;
+  }
+}
+
+.articleEditor {
+  position: relative;
+  border: 1px solid #c9d8db;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 3px;
+}
+
+.toolbar {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  .button {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+  }
+  .ui.button:hover {
+    background-color: #00B5AD;
+    color: #ffffff;
+  }
+}
+
+.editor-body {
+  padding: 15px;
+  color: #555;
+  line-height: 1.6;
+  //user-select: none;
+  .list {
+    width: 530px;
+    margin: auto;
+  }
+  .item {
+    .content {
+      font-size: 20px;
+    }
+    & > div {
+      position: relative;
+      margin-bottom: 10px;
+      border: 1px dashed @border-color;
+      padding: 10px;
+      cursor: move;
+      &:hover {
+        border-color: @default-color;
+        .marker {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .ui-sortable-placeholder {
+    position: relative;
+    border: 1px dashed #00B5AD !important;
+    background-color: #ffffff;
+    visibility: visible !important;
+  }
+  .ui-sortable-placeholder:before {
+    position: absolute;
+    top: 50%;
+    content: "请推放到此区域";
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: -10px;
+  }
+  .marker {
+    position: absolute;
+    text-indent: 0 !important;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 300ms;
+    .btns {
+      text-align: center;
+      position: relative;
+      top: 50%;
+      margin-top: -13px;
+    }
+  }
+}
+
+//文本
+.text-module {
+  .content {
+    text-indent: 1em;
+    text-align: justify;
+    word-break: break-all;
+  }
+}
+
+//图片
+.image-module {
+  font-size: 0;
+  text-align: center;
+  img {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  p {
+    font-size: 16px;
+    color: #9b9c9c;
+  }
+}
+
+//视频
+.video-module {
+  img {
+    max-width: 100%;
+  }
+  .icon {
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    margin-top: -30px;
+    left: 50%;
+    margin-left: -35px;
+    color: rgba(0, 0, 0, 0.53);
+  }
+}
+
+//音频
+.music-module {
+  .content {
+    border: 1px solid #d6d4d4;
+    padding: 10px !important;
+    font-size: 0 !important;
+  }
+  .controller {
+    position: absolute;
+    top: 35px;
+    background-color: #d2d2d2;
+    width: 390px;
+    height: 3px;
+    left: 110px;
+    &:after {
+      content: '';
+      width: 13px;
+      height: 13px;
+      border-radius: 100%;
+      background-color: #c99d44;
+      display: block;
+      margin-top: -5px;
+    }
+  }
+  .title {
+    color: #111;
+    font-size: 20px;
+    position: absolute;
+    left: 110px;
+    top: 65px;
+    width: 310px;
+    .ellipsis();
+  }
+  .icon {
+    font-size: 45px;
+    color: #8c8c8c;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    line-height: 1;
+  }
+  img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #d6d4d4;
+  }
+}
+
+//产品
+.product-module {
+  .content {
+    border: 1px solid #d6d4d4;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    height: 120px;
+    padding-right: 35px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+  }
+  .info {
+    padding-left: 110px;
+  }
+  .title {
+    color: #111;
+    line-height: 33px;
+    height: 66px;
+    overflow: hidden;
+    text-align: justify;
+    word-break: break-all;
+  }
+  .price {
+    color: #ff2641;
+  }
+  .icon {
+    position: absolute;
+    right: 0;
+    font-size: 39px;
+    line-height: 1;
+    top: 50%;
+    margin-top: -23px;
+    color: #918f8f;
+  }
+}
+
+//菜谱
+.cookBook-module {
+  .content {
+    border: 1px solid #d6d4d4;
+  }
+  .bg {
+    max-width: 100%;
+  }
+  .preview {
+    position: absolute;
+    top: 67px;
+    left: 40px;
+    width: 135px;
+    height: 135px;
+    border: 1px solid #dcdbdd;
+  }
+  .info {
+    position: absolute;
+    left: 195px;
+    top: 63px;
+    width: 300px;
+    text-align: justify;
+    a {
+      width: 100px;
+      line-height: 35px;
+      background-color: #c99d44;
+      border-radius: 4px;
+      display: block;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  }
+  .title {
+    color: #111;
+    .ellipsis();
+  }
+  .desc {
+    color: #b7b7b7;
+    line-height: 30px;
+    height: 60px;
+    overflow: hidden;
+    font-size: 17px;
+  }
+}
+
+//菜谱
+.material-module {
+  span {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+  span:nth-child(1) {
+    border-right: 1px solid #ddd;
+  }
+}
+
+/* 不要删除下面的内容，这个为inject自动注入所有的css文件准备的 */
+
+// injector
+// endinjector

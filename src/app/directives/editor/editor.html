@@ -1,0 +1,23 @@
+<div>
+    <textarea class="editor"></textarea>
+
+    <script type="text/ng-template" id="editorUploaderTemplate">
+        <form name="myForm" novalidate>
+            <div class="ui small modal">
+                <i class="close icon" ng-click="closeThisDialog()"></i>
+                <div class="small header">
+                    插入图片
+                </div>
+                <div class="content">
+                    <upload ng-model="data.imgsUrl" width="640" max="5" required>最多一次插入5张图片，可拖动排序，</upload>
+                </div>
+                <div class="actions">
+                    <button class="teal ui button" ng-click="submit()" ng-disabled="myForm.$invalid"
+                            ng-class="{loading:otherData.loading}">插入
+                    </button>
+                </div>
+            </div>
+        </form>
+    </script>
+
+</div>

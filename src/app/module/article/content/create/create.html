@@ -1,0 +1,87 @@
+<div class="article-content-create">
+    <go-back></go-back>
+	<column-title-bar></column-title-bar>
+	<div class="ui teal segment">
+		<form class="ui form" name="form" novalidate>
+			<div class="field">
+				<label>所属分类：</label>
+				<div class="ui fluid search selection dropdown" ui-dropdown>
+					<i class="dropdown icon"></i>
+					<div class="text">{{ data.topicTitle || '请选择活动分类(必填项)' }}</div>
+					<div class="menu">
+						<div class="item" ng-repeat="item in topicSort" ng-click="data.topicId=item.topicId">
+							{{ item.topicTitle }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="field">
+				<label>所属景点：</label>
+				<div class="ui fluid search selection dropdown" ui-dropdown>
+					<i class="dropdown icon"></i>
+					<div class="text">{{ data.viewsTitle || '请选择所属景点' }}</div>
+					<div class="menu">
+						<div class="item" ng-repeat="item in views" ng-click="data.linkArticleId=item.articleId">
+							{{ item.articleTitle }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="field" ng-class="{'error':form.articleTitle.$touched && form.articleTitle.$invalid}">
+				<label>活动标题：</label>
+				<input type="text" placeholder="请输入活动标题" name="articleTitle" ng-model="data.articleTitle" required="" />
+				<form-error>此项不能为空</form-error>
+			</div>
+			<div class="field">
+				<label>联系电话：</label>
+				<input type="text" placeholder="请输入联系电话" name="telephone" ng-model="data.telephone" required="" />
+			</div>
+			<div class="field">
+				<label>活动排序：</label>
+				<input type="text" placeholder="请输入活动排序" name="articleGeneralRecommentSort" ng-model="data.articleGeneralRecommentSort" required="" />
+			</div>
+			<div class="field">
+				<label>活动开始时间：</label>
+				<div class="ui icon input" style="width: 320px">
+					<input auto-close="true" date-time ng-model="data.startDate" format="YYYY-MM-DD" required view="date" min-view="date" date-change="dateChange" placeholder="请选择开始时间" readonly/>
+					<i class="calendar icon"></i>
+				</div>
+			</div>
+			<div class="field">
+				<label>活动结束时间：</label>
+				<div class="ui icon input" style="width: 320px">
+					<input auto-close="true" date-time ng-model="data.endDate" format="YYYY-MM-DD" required view="date" min-view="date" date-change="dateChange" placeholder="请选择开始时间" readonly/>
+					<i class="calendar icon"></i>
+				</div>
+			</div>
+			<div class="field">
+				<label>活动地点</label>
+				<map ng-model="data.lonLat" required=""></map>
+			</div>
+			<div class="field">
+				<label>活动图片：</label>
+				<pic-hot-spot ng-model="data.articlePicture" width="750" height="560">
+					<button class="ui button red">添加热点</button>
+				</pic-hot-spot>
+			</div>
+			<div class="field">
+				<label>活动描述：</label>
+				<textarea class="textArea" ng-model="data.articleOtherText"></textarea>
+			</div>
+			<div class="field">
+				<label>活动内容：</label>
+				<editor-dialog ng-model="data.jsonList">
+					<edit-tab title="添加文本" icon="icon-text" type="text"></edit-tab>
+					<edit-tab title="添加图片" icon="icon-img" type="image"></edit-tab>
+					<edit-tab title="添加视频" icon="icon-video" type="video"></edit-tab>
+					<edit-tab title="添加音频" icon="icon-audio" type="audio"></edit-tab>
+				</editor-dialog>
+			</div>
+			<div class="field">
+				<button class="ui labeled icon teal button" ng-click="submit()" ng-disabled="form.$invalid||!data.lonLat.bd||!data.linkArticleId||!data.topicId">
+                    <i class="icon plus"></i>提交
+                </button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="ui">
+	<div class="ui twelve">
+		<input type="text" ng-model="lonLat.address" disabled placeholder="请点击添加地图选择地理位置" />
+	</div>
+	<br />
+	<div class="map ui grid">
+		<div class="five wide column" ng-if="show" style="width: 303px !important;height: 345px;">
+			<div class="map-list">
+				<div class="mapHeader">点击选择/修改地图 <span class="icon iconfont icon-sure"></span></div>
+				<div class="mapBody">
+					<img src="http://api.map.baidu.com/staticimage?center={{lonLat.bd.lng}},{{lonLat.bd.lat}}&width=274&height=274&zoom=16&markers={{lonLat.bd.lng}},{{lonLat.bd.lat}}" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="four wide column">
+			<span style="background-color:#00b5ad;" class="add" ng-click="addMap()" ng-if="!isUpdate">
+            <i class="icon iconfont icon-shizi"></i>添加地图
+        </span>
+			<span class="add" ng-click="addMap(lonLat.bd)" ng-if="isUpdate">
+            <i class="icon iconfont icon-update"></i>修改地图
+        </span>
+		</div>
+	</div>
+</div>

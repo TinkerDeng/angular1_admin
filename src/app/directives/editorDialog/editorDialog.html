@@ -1,0 +1,117 @@
+<div class="articleEditor">
+    <div class="toolbar" ng-transclude></div>
+    <div class="editor-body">
+        <div class="list" ui-sortable='sortableOptions' ng-model="jsonList.content" id="sortable">
+            <div class="item" ng-repeat="item in jsonList.content track by $index" ng-class="{aaa:item.isMove}">
+                <!--文本-->
+                <div class="text-module ui-state-disabled" ng-if="item.type==1&&!item.isTextarea">
+                    <div class="content">{{item.info}}</div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addText(item,$index)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-module field" ng-if="item.type==1&&item.isTextarea">
+                    <label>请输入文本</label>
+                    <textarea ng-model="item.info" class="textArea"></textarea>
+                </div>
+                <!--图片-->
+                <div class="image-module" ng-if="item.type==2">
+                    <div class="content">
+                        <img ng-src={{item.image}} alt="图片不存在"/>
+                        <p ng-if="item.info">{{item.info}}</p>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addImage(item,$index)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                            <add-hot-spot ng-model="item">
+                                <a class="ui red tiny compact button">添加热点</a>
+                            </add-hot-spot>
+                            <add-to-list image="item" ng-if="recommandToHome"></add-to-list>
+                        </div>
+                    </div>
+                </div>
+                <!--视频-->
+                <div class="video-module" ng-if="item.type==3">
+                    <div class="content">
+                        <img ng-src={{item.image}} alt="图片不存在"/>
+                        <i class="iconfont icon icon-custom-play"></i>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addVideo(item,$index)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <!--音频-->
+                <div class="music-module" ng-if="item.type==4">
+                    <div class="content">
+                        <img ng-src={{item.image}} alt="图片不存在"/>
+                        <div class="controller">{{item.info.title}}</div>
+                        <div class="title">{{item.info.title}}</div>
+                        <i class="iconfont icon icon-custom-play"></i>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addAudio(item,$index)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <!--产品-->
+                <div class="product-module" ng-If="item.type==5||item.type==6">
+                    <div class="content">
+                        <img ng-src={{item.image}} alt="图片不存在"/>
+                        <div class="info">
+                            <div class="title">{{item.info.title}}</div>
+                            <div class="price">{{item.info.price}}</div>
+                        </div>
+                        <i class="icon angle right"></i>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addProduct(item,$index)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <!--菜谱-->
+                <div class="cookBook-module" ng-If="item.type==7">
+                    <div class="content">
+                        <img class="bg" src="../../../assets/images/cookbookBg.png"/>
+                        <img ng-src={{item.image}} class="preview"/>
+                        <div class="info">
+                            <div class="title">{{item.info.title}}</div>
+                            <div class="desc">{{item.info.content}}</div>
+                            <a>查看更多</a>
+                        </div>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addCookie(false,$index,item)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+                <!--材料-->
+                <div class="material-module" ng-If="item.type==8">
+                    <div class="content">
+                        <div class="info" ng-repeat="item1 in item.info track by $index">
+                            <p><span>{{item1.title}}</span><span>{{item1.unit}}</span></span></p>
+                        </div>
+                    </div>
+                    <div class="marker">
+                        <div class="btns">
+                            <a class="ui teal tiny compact button" ng-click="main.addMaterial(false,$index,item)">修改</a>
+                            <a class="ui red tiny compact button" ng-click="delete($index)">删除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

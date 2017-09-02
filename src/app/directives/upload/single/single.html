@@ -1,0 +1,34 @@
+<div class="upload single">
+    <!--顶部备注-->
+    <p class="annotation">
+        <span class="orange">注</span>：
+        <span ng-transclude=""></span>
+    </p>
+    <!--多图上传-->
+    <div class="body">
+        <div class="img-box" ng-style="sizeStyle" ng-class="{'ui loading':uploading}">
+            <div class="img-empty" ng-if="!imgs[imgs.length-1]">
+                <i class="iconfont icon-upload"></i>
+            </div>
+            <i></i>
+            <img ng-src="{{imgs[imgs.length-1]|notImageFilePreview}}" ng-if="imgs.length>0"/>
+        </div>
+        <!--上传按钮-->
+        <div class="img-cont" ng-class="{uploading:uploading}">
+            <div class="subAnnotation">
+                <span ng-if="width&&height">尺寸为{{width}}*{{height}}像素，</span>
+                <span ng-if="width&&!height">尺寸为宽度{{width}}像素，</span>
+                <span ng-if="!width&&height">尺寸为高度{{height}}像素，</span>
+                <span>格式为{{typeList.join('、')}}，大小不可大于{{size}}M。</span>
+            </div>
+            <div class="uploadBtn">
+                <span ng-if="!uploading">{{imgs[0]?'重新上传':'开始上传'}}</span>
+                <span ng-if="uploading">
+		          	正在上传：{{uploadProgress}}%
+		        </span>
+            </div>
+        </div>
+    </div>
+    <!--错误备注-->
+    <p class="error" ng-if="errorInfo"><i class="iconfont icon-error"></i> {{errorInfo}}</p>
+</div>

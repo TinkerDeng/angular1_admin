@@ -1,0 +1,54 @@
+.articleContent{
+  .editor-body .item > div{
+    border:none;
+  }
+  .editor-body .item > div:hover{
+    border:none;
+  }
+  .img-wrapper{
+    position:relative;
+    .image-module .content{
+      position:relative;
+    }
+    .hot{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      top:0;
+    }
+    //  .hot-position:before {
+    //      display: inline-block;
+    //      content: "";
+    //      position: absolute;
+    //      left: 50%;
+    //      top: 50%;
+    //      width: 10px;
+    //      height: 10px;
+    //      margin-top: -5px;
+    //      margin-left: -5px;
+    //      background-color: #00B5AD;
+    //      border-radius: 100%;
+    //      z-index: -1;
+    //  }
+    .hot-position{
+      position:absolute;
+      background-color:rgba(0, 0, 0, 0.5);
+      font-size:12px;
+      text-align:center;
+      color:#ffffff;
+      z-index:2;
+      border-radius:50px/20px;
+      width:50px;
+      height:20px;
+      margin-top:-10px;
+      margin-left:-25px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+  }
+  img{
+    display:block;
+  }
+}

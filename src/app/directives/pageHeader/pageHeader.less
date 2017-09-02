@@ -1,0 +1,69 @@
+#header {
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    z-index: 1001;
+    width: 100%;
+    min-width: 1200px;
+    header {
+        height: 60px;
+        position: relative;
+    }
+    &.hide {
+        position: fixed;
+        top: -60px;
+        .small_logo {
+            opacity: 1;
+        }
+    }
+}
+#nav {
+    margin-top: 0;
+    border-radius: 0;
+    .menu {
+        height: 45px;
+        position: relative;
+    }
+    .small_logo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 400ms;
+    }
+    .item {
+        transition: background 500ms;
+    }
+}
+#logo {
+    text-indent: -9999px;
+    background-image: url("/assets/images/logo.png");
+    display: block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+#userIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 60px;
+    user-select: none;
+    .emailBtn {
+        position: relative;
+        margin-right: 15px;
+        color: #6f6f6f;
+    }
+    .avatar {
+        width: 2.5em;
+        height: 2.5em;
+        margin-top: -5px;
+    }
+    .menu.transition {
+        margin-top: 0;
+        .item {
+            font-weight: normal;
+            background: none;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div id="login">
+	<div class="ui tall stacked segment">
+		<a class="ui teal ribbon huge label">
+			<i class="desktop icon"></i> 管理登录
+		</a>
+		<form name="loginForm" class='ui form' noValidate>
+			<div class="field">
+				<div class="ui left icon input">
+					<input type="text" name="username" ng-model="data.username" placeholder="请输入您的用户名" required>
+					<i class="user icon"></i>
+					<span ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched">
+                        <p class="ui left pointing red basic label" ng-message="required">不能为空</p>
+                    </span>
+				</div>
+			</div>
+			<div class="field">
+				<div class="ui left icon input">
+					<input type="password" name="password" ng-model="data.password" placeholder="请输入您的登录密码" required>
+					<i class="lock icon"></i>
+					<span ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+                        <p class="ui left pointing red basic label" ng-message="required">不能为空</p>
+                    </span>
+				</div>
+			</div>
+			<div class="buttons">
+				<button type="submit" class="ui teal fluid button" ng-class="{loading:otherData.loading}" ng-disabled="loginForm.$invalid" ng-click="submit()">
+                    <i class="sign in icon"></i>
+                    登录
+                </button>
+			</div>
+			<div class="ui red message" ng-if="otherData.loginFail">
+				<p>用户名或密码错误</p>
+			</div>
+		</form>
+	</div>
+</div>

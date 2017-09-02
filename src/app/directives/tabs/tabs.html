@@ -1,0 +1,9 @@
+<div class="tabs">
+    <div class="ui top attached tabular menu">
+        <div class="item" ng-repeat="tab in tabsCtrl.tabs" ng-click="tabsCtrl.select(tab)"
+             ng-class="{active:tab.active}">
+            {{tab.title}}
+        </div>
+    </div>
+    <div ng-transclude=""></div>
+</div>

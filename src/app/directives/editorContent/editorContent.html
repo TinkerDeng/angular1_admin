@@ -1,0 +1,67 @@
+<div class="articleContent">
+	<div class="editor-body">
+		<div class="list">
+			<div class="item" ng-repeat="item in jsonList.content">
+				<!--文本-->
+				<div class="text-module" ng-if="item.type==1">
+					<div class="content">{{item.info}}</div>
+				</div>
+				<!--图片-->
+				<div class="image-module" ng-if="item.type==2">
+					<div class="content">
+						<div class="img-wrapper">
+							<img ng-src={{item.image}} alt="图片不存在" />
+							<div class="hot">
+								<div class="hot-position" ng-repeat="list in item.otherdata" ng-style="{left:{{list.persentX}}+'%',top:{{list.persentY}}+'%'}">
+									{{list.value}}
+								</div>
+							</div>
+						</div>
+
+						<p ng-if="item.info">{{item.info}}</p>
+
+					</div>
+				</div>
+				<!--视频-->
+				<div class="video-module" ng-if="item.type==3">
+					<div class="content">
+						<img ng-src={{item.image}} />
+						<i class="iconfont icon icon-custom-play"></i>
+					</div>
+				</div>
+				<!--音频-->
+				<div class="music-module" ng-if="item.type==4">
+					<div class="content">
+						<img ng-src={{item.image}} />
+						<div class="controller"></div>
+						<div class="title">{{item.title}}</div>
+						<i class="iconfont icon icon-custom-play"></i>
+					</div>
+				</div>
+				<!--产品-->
+				<div class="product-module" ng-If="item.type==5||item.type==6">
+					<div class="content">
+						<img ng-src={{item.image}} />
+						<div class="info">
+							<div class="title">{{item.title}}</div>
+							<div class="price">{{item.other}}</div>
+						</div>
+						<i class="icon angle right"></i>
+					</div>
+				</div>
+				<!--菜谱-->
+				<div class="cookBook-module" ng-If="item.type==7">
+					<div class="content">
+						<img class="bg" src="../../../assets/images/cookbookBg.png" />
+						<img ng-src={{item.image}} class="preview" />
+						<div class="info">
+							<div class="title">{{item.title}}</div>
+							<div class="desc">{{item.other}}</div>
+							<a>查看更多</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

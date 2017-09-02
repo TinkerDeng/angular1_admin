@@ -1,0 +1,117 @@
+<div class="ui small modal">
+    <i class="close icon" ng-click="closeThisDialog()"></i>
+    <div class="small header" style="background-color:#f5f5f5;">
+        <div class="user-info">
+            <p>点击添加热点</p>
+        </div>
+    </div>
+    <div class="content" style="background-color:#f5f5f5;">
+        <div class="hotSpot">
+            <div ng-click="showHotEditModal($event)">
+                <img ng-src={{data.image}} class="img" style="pointer-events: none;"/>
+            </div>
+            <!--标记点编辑modal，默认隐藏-->
+            <div class="showSpot">
+                <form class="ui mini form" name="form" novalidate>
+                    <div class="inline field">
+                        <label>标志值：</label>
+                        <input placeholder="请输入标记值" type="text" ng-model="hotSpotData.value" required=""/>
+                    </div>
+                    <div class="inline field">
+                        <div class="field">
+                            <label>显示方向：</label>
+                            <div class="inline field" style="font-size: 0">
+                                <div class="ui radio checkbox">
+                                    <input name="direction" type="radio" id="direction1"
+                                           ng-model="hotSpotData.direction" value="1"
+                                           required="">
+                                    <label for="direction1">右下</label>
+                                </div>
+                                <div class="ui radio checkbox">
+                                    <input name="direction" type="radio" id="direction2"
+                                           ng-model="hotSpotData.direction" value="2"
+                                           required="">
+                                    <label for="direction2">左下</label>
+                                </div>
+                                <div class="ui radio checkbox">
+                                    <input name="direction" type="radio" id="direction3"
+                                           ng-model="hotSpotData.direction" value="3"
+                                           required="">
+                                    <label for="direction3">右上</label>
+                                </div>
+                                <div class="ui radio checkbox">
+                                    <input name="direction" type="radio" id="direction4"
+                                           ng-model="hotSpotData.direction" value="4"
+                                           required="">
+                                    <label for="direction4">左上</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline field">
+                        <div class="field">
+                            <label>选择类别：</label>
+                            <div class="inline field">
+                                <div class="ui radio checkbox" ng-repeat="item in config.type">
+                                    <input name="targetType" ng-checked="item.value==currentType.value"
+                                           type="radio" id="targetType{{$index}}"
+                                           ng-value="item.value" ng-click="change(item)">
+                                    <label for="targetType{{$index}}">{{item.title}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline field" ng-model="showType" ng-if="currentType.linkTypes">
+                        <div class="field">
+                            <label>选择模式：</label>
+                            <div class="inline field">
+                                <div class="ui radio checkbox"
+                                     ng-if="currentType.linkTypes.indexOf(item.value)>-1"
+                                     ng-repeat="item in config.linkType">
+                                    <input name="type" type="radio" ng-value={{item.value}} id="type{{$index}}"
+                                           ng-checked="item.value==currentLinkType.value"
+                                           ng-click="choice(item)">
+                                    <label for="type{{$index}}">{{item.title}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field targetValue" ng-if="currentLinkType.showId">
+                        <label>ID：</label>
+                        <select-article-for-hot ng-model="hotSpotData.targetValue" required="" type="{{currentType.value}}"></select-article-for-hot>
+                    </div>
+                    <div class="field targetValue" ng-if="currentLinkType.showUrl">
+                        <label>URL：</label>
+                        <input placeholder="请输入链接地址" type="text" ng-model="hotSpotData.targetValue" required=""/>
+                    </div>
+                </form>
+                <div class="inline field" style="margin-top: 10px;">
+                    <button class="ui submit button" ng-click="hiddenHotEditModal($event)">取消</button>
+                    <button class="ui submit button teal" ng-disabled="form.$invalid" ng-click="finish($event)">提交
+                    </button>
+                </div>
+            </div>
+            <div class="position" ng-repeat="item in hotspot" ng-style="item" ng-mouseenter="myMouseover($event,$index)"
+                 ng-mouseleave="myMouseout($event)">
+                <dot></dot>
+                <div class="tipB">
+                    <div class="tipValue"
+                         ng-class="{'top':item.direction==1,'right':item.direction==2,'bottom':item.direction==4,'left':item.direction==3}">
+                        {{item.value}}
+                    </div>
+                </div>
+                <div class="tipArea"
+                     ng-class="{'top':item.direction==1,'right':item.direction==2,'bottom':item.direction==4,'left':item.direction==3}">
+                    <div class="tipBtn">
+                        <span ng-click="delHot(item,$index)">删除</span>
+                        <span ng-click="updateHot(item,$index)">修改</span>
+                    </div>
+                </div>
+            </div>
+            <div class="field" style="margin-top: 10px;">
+                <button class="ui button" ng-click="closeThisDialog()">取消</button>
+                <button class="ui button teal" ng-click="submit()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

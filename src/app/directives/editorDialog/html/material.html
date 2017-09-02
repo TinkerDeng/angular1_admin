@@ -1,0 +1,30 @@
+<div class="ui small modal">
+	<i class="close icon" ng-click="closeThisDialog()"></i>
+	<div class="small header">
+		<div class="user-info">
+			<p>材料管理</p>
+		</div>
+	</div>
+	<div class="content">
+		<div class="material">
+			<div class="item" ng-repeat="item in data.meterial">
+				<div class="content">
+					<div class="ui"><span style="font-weight: bold;">材料名称</span>：{{item.title}}</div>
+					<div class="ui"><span style="font-weight: bold;">材料价格</span>：{{item.price}}</div>
+					<div class="ui"><span style="font-weight: bold;">材料单位</span>：{{item.unit}}</div>
+				</div>
+				<div class="btns">
+					<a class="ui teal tiny compact button" ng-click="addMetarial(item,$index)">修改</a>
+					<a class="ui red tiny compact button" ng-click="delMetarial($index)">删除</a>
+				</div>
+			</div>
+			<div class="add" ng-click="addMetarial()">
+				<i class="icon iconfont icon-add"></i>
+			</div>
+		</div>
+		<div class="field">
+			<button class="ui button" ng-click="closeThisDialog()">取消</button>
+			<button class="ui button teal" ng-click="submit()" ng-disabled="form.$invalid">确定</button>
+		</div>
+	</div>
+</div>

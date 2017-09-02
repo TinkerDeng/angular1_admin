@@ -1,0 +1,19 @@
+<div class="pageAside">
+    <div class="ui vertical pointing large menu">
+        <div class="item">
+            <h3 class="ui header">
+                <i class="{{route.icon}}"></i>
+                <div class="content">
+                    {{route.title}}
+                </div>
+            </h3>
+        </div>
+        <a class="item teal" ng-repeat="item in children|orderBy:'sort'|filter:{hide:'!true'}"
+           ng-class="{active:active(item)}"
+           ui-sref="{{item.name}}">
+            <i class="{{item.icon}}"></i>
+            <div class="ui label" ng-if="item.label" ng-class="{teal:active(item)}">{{item.label}}</div>
+            {{item.title}}
+        </a>
+    </div>
+</div>

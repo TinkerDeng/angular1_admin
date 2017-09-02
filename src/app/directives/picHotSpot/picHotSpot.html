@@ -1,0 +1,10 @@
+<div class="picSpotHot">
+	<div class="addHotBtn" ng-if="data.image">
+		<add-hot-spot ng-model="data" is-pic-id="true">
+			<a class="ui red tiny compact button">添加热点</a>
+		</add-hot-spot>
+	</div>
+	<upload ng-model="data.image" width="{{width}}" height="{{height}}" required>
+		必填项，文章列表页显示的图片
+	</upload>
+</div>

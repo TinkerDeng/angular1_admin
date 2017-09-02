@@ -1,0 +1,61 @@
+.label-tag-list {
+    .preview {
+        img {
+            border-radius: 100px;
+        }
+    }
+    .item-info {
+        line-height: 60px;
+    }
+    .sort {
+        .icon-increase,
+        .icon-reduce,
+        .icon-relation,
+        .icon-update {
+            color: #000;
+        }
+        & > ul {
+            border: 1px solid #ddd;
+        }
+        li.item {
+            padding: 10px;
+        }
+        li li {
+            text-indent: 10px;
+        }
+        li {
+            border-bottom: 1px solid #ddd;
+            a {
+                position: relative;
+                display: block;
+                padding: 10px 15px;
+                vertical-align: middle;
+                color: #000;
+                .pull-right {
+                    float: right;
+                    display: none;
+                }
+                .ui.icon.button {
+                    padding: 5px;
+                }
+                &:hover {
+                    .pull-right {
+                        display: inline-block;
+                    }
+                }
+            }
+            button {
+                vertical-align: middle;
+            }
+            ul {
+                overflow: hidden;
+            }
+            ul.hide {
+                height: 0;
+            }
+            ul.show {
+                height: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div class="news-content-create">
+    <go-back></go-back>
+    <column-title-bar></column-title-bar>
+    <div class="ui teal segment">
+        <form class="ui form" name="form" novalidate>
+            <div class="field" ng-class="{'error':form.newsTitle.$touched && form.newsTitle.$invalid}">
+                <label>新闻标题：</label>
+                <input type="text" placeholder="请输入新闻标题" name="articleTitle" ng-model="data.articleTitle" required=""/>
+                <form-error>此项不能为空</form-error>
+            </div>
+            <div class="field">
+                <label>新闻开始时间：</label>
+                <div class="ui icon input" style="width: 320px">
+                    <input auto-close="true" date-time ng-model="data.startDate" format="YYYY-MM-DD" required
+                           view="date" min-view="date" date-change="dateChange" placeholder="请选择开始时间" readonly/>
+                    <i class="calendar icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>列表图：</label>
+                <recommend-to-home ng-model="data.picForList" max="3" width="500" height="300"></recommend-to-home>
+            </div>
+            <div class="field">
+                <label>新闻内容：</label>
+                <editor-dialog ng-model="data.jsonList" recommand-to-home="true">
+                    <edit-tab title="添加文本" icon="icon-text" type="text"></edit-tab>
+                    <edit-tab title="添加图片" icon="icon-img" type="image"></edit-tab>
+                    <edit-tab title="添加视频" icon="icon-video" type="video"></edit-tab>
+                    <edit-tab title="添加音频" icon="icon-audio" type="audio"></edit-tab>
+                </editor-dialog>
+            </div>
+            <button class="ui labeled icon teal button" ng-click="submit()" ng-disabled="form.$invalid">
+                <i class="icon plus"></i>提交
+            </button>
+        </form>
+    </div>
+</div>

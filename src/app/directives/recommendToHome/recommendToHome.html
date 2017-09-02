@@ -1,0 +1,34 @@
+<div class="recomentToHome">
+    <upload ng-model="imgs" max="{{max}}" multiple="true" width="{{width}}" height="{{height}}">
+        <span ng-transclude=""></span>
+    </upload>
+    <!--<div class="tip"><span>注：</span>请从下面的文章内容中，选择推荐到首页的图片列表，最多只能三张</div>
+    <div class="ui five column grid">
+        <div class="column" ng-repeat="item in items track by $index">
+            <div class="ui segment" style="text-align: center;">
+                <img ng-src='{{item+"?imageView2/0/w/290/h/100"}}'/>
+            </div>
+            <div class="del" ng-click="delete($index)">
+                <i class="icon iconfont icon-error"></i>
+            </div>
+        </div>
+    </div>-->
+	<!--<upload ng-model="imgs" max="3">请选择或者从下面的文章内容中选择推荐到首页的图片，</upload>-->
+	<!--<div class="tip">
+		<div>请从下面的文章内容中，选择推荐到首页的图片列表，最多只能三张</div>
+		<div>
+			<span style="color:#ff0000;font-size:20px;font-weight: bold;">注：</span>
+			<span>推送的列表页的图片的宽高比例最好是5:3,以避免前端页面变形问题</span>
+		</div>
+	</div>
+	<div class="ui five column grid">
+		<div class="column" ng-repeat="item in items track by $index">
+			<div class="ui segment" style="text-align: center;">
+				<img ng-src='{{item+"?imageView2/1/w/125/h/50"}}' />
+			</div>
+			<div class="del" ng-click="delete($index)">
+				<i class="icon iconfont icon-error"></i>
+			</div>
+		</div>
+	</div>-->
+</div>

@@ -1,0 +1,39 @@
+<div class="label-tag-list">
+	<float-btn title="添加标签" ui-sref="label.tag.create">
+		<i class="icon plus"></i>
+	</float-btn>
+	<column-title-bar></column-title-bar>
+	<table class="ui teal selectable table table-list">
+		<thead>
+			<tr>
+				<th width="150">ID</th>
+				<th width="195">分类名称</th>
+				<th width="140">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in list" ng-class="{checked:item.checked}">
+				<td>{{item.tagId}}</td>
+				<td class="preview">
+					<span class="item-info">{{item.tagName}}</span>
+				</td>
+				<td>
+					<a class="ui teal tiny compact button" ui-sref="label.tag.edit({id:item.tagId})">修改</a>
+					<button class="ui red tiny compact button" ng-click="delete(item.tagId)">删除</button>
+				</td>
+			</tr>
+			<tr ng-if="list.length==0">
+				<td colspan="4" class="center aligned">
+					没有符合条件的记录
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr ng-if="list.length>0">
+				<th colspan="4" class="center aligned">
+					<pagination page-total="totalPage"></pagination>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+</div>

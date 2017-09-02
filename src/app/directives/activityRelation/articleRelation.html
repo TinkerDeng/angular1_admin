@@ -1,0 +1,25 @@
+<div class="product_item">
+    <div class="product_content" ng-repeat="item in data">
+        <div class="ui divided items">
+            <div class="item">
+                <div class="ui tiny image">
+                    <img ng-src={{item.articlePicture}}>
+                </div>
+                <div class="middle aligned content">
+                    <div>{{item.articleTitle}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="btns">
+                <a class="ui teal tiny compact button" ng-click="showDialog(item,$index)">修改</a>
+                <a class="ui red tiny compact button" ng-click="del($index)">删除</a>
+            </div>
+        </div>
+    </div>
+    <div class="product_btn" ng-click="showDialog()">
+        <div class="product_btn_wrapper">
+            <i class="icon iconfont icon-add"></i>
+        </div>
+    </div>
+</div>

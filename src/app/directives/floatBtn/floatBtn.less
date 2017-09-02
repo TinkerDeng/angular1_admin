@@ -1,0 +1,43 @@
+@import "../../../assets/less/values";
+
+.floatBtn {
+    @width: 50px;
+    @height: 50px;
+    position: fixed;
+    width: @width;
+    height: @height;
+    bottom: 110px;
+    background-color: @default-color;
+    border-radius: 100px;
+    right: 20px;
+    transition: width 200ms;
+    cursor: pointer;
+    text-align: right;
+    line-height: @height;
+    font-size: 16px;
+    color: #fff;
+    padding-right: 21px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 100;
+    user-select: none;
+    .icon {
+        position: absolute;
+        width: @width;
+        height: @height;
+        left: 0;
+        top: 0;
+        font-size: 20px;
+    }
+
+    span {
+        opacity: 0;
+        transition: opacity 200ms;
+    }
+    &:hover {
+        width: 130px;
+        span {
+            opacity: 1;
+        }
+    }
+}
